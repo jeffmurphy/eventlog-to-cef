@@ -1,0 +1,40 @@
+#include <winver.h>
+#include "ver.h"
+
+VS_VERSION_INFO	VERSIONINFO
+	FILEVERSION VERSION_MAJOR,VERSION_MINOR,0,0
+	PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR,0,0
+	FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+	FILEFLAGS 0
+	FILEOS VOS_NT_WINDOWS32
+#ifdef VERDLL
+	FILETYPE VFT_DLL
+#else
+	FILETYPE VFT_APP
+#endif
+	FILESUBTYPE 0
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904b0" // U.S. English & Unicode
+		BEGIN
+			VALUE "CompanyName", "University at Buffalo"
+			VALUE "FileDescription", "Eventlog to CEF Utility"
+			VALUE "FileVersion", VERSION
+			VALUE "InternalName", "EVTCEF"
+			VALUE "LegalCopyright", L"\x00A9 University at Buffalo"
+#ifdef VERDLL
+			VALUE "OriginalFilename", "EVTCEF.DLL"
+#else
+			VALUE "OriginalFilename", "EVTCEF.EXE"
+#endif
+			VALUE "ProductName", "Eventlog to CEF Utility"
+			VALUE "ProductVersion", VERSION
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0409, 0x04b0
+	END
+END
+
